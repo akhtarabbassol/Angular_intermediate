@@ -1,22 +1,34 @@
 import { Component } from "@angular/core";
-import { Child } from "./Components/child";
+import { childApp } from "./Components/child";
 
 
+export interface userinfo{
+  Name  : string ;
+  Email : string ;
+  Phone : number ;
+}
 
 @Component({
-  selector :'app-root' ,
-  imports:[Child] ,
-  templateUrl:'app.html' ,
-  styleUrl:'app.css'
+  selector:'app-root',
+  imports:[childApp] ,
+  templateUrl:'app.html',
+  styleUrl:'app.css'  
 })
 
 export class App{
-    Name:string ="";
-    email:string ="";
-    ChildName:string =""
-    ChildEmail:string = ""
-   Send(Name:string , email:string){
-     this.ChildName = Name 
-     this.ChildEmail = email
+  username:string = ""
+  useremail:string = ""
+  userphone:number = 0
+  User:userinfo = {
+    Name:'' ,
+    Email: '',
+    Phone: 0
+  }
+  SendData(username:string , useremail:string , userphone:number){
+   this.User={
+    Name : username ,
+    Email: useremail ,
+    Phone : userphone ,
    }
+  }
 }
